@@ -1,0 +1,3 @@
+output "public_ip" {
+  value = "${tencentcloud_instance.cvm_test[0].public_ip}"
+}

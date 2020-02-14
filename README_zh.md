@@ -1,16 +1,16 @@
 # hcl2json
-Convert HCL to JSON , and vice versa. Use the latest version hcl source to build.
+转换HCL为JSON,反之亦然. 使用最新版本的hcl源码构建.
 
 [![Build Status](https://travis-ci.org/gorpher/hcl2json.svg?branch=master)](https://travis-ci.org/gorpher/hcl2json)
 
-## Language
+## 语言
 [简体中文](/README_zh.md)|[English](/READMD.md)
 
-## Install 
+## 安装 
 
 ### Linux
 
-Here's how it could look for 64 bits Linux, if you wanted `hcl2json` available globally inside
+下载64位linux版本,并安装.
 `/usr/local/bin`:
 
 ```bash
@@ -21,7 +21,8 @@ curl -SsL https://github.com/gorpher/hcl2json/releases/download/v1.0.0/hcl2json_
 
 ### OSX
 
-Here's how it could look for 64 bits Darwin, if you wanted `hcl2json` available globally inside
+下载64位Darwin版本,并安装.
+
 `/usr/local/bin`:
 
 ```bash
@@ -30,11 +31,11 @@ curl -SsL https://github.com/gorpher/hcl2json/releases/download/v0.0.6/hcl2json_
 ```
 
 
-## Use
+## 使用
 
-Single file convert
+单文件转换
 
-Here's an example [`test-fixtures/hcl_outputs/outputs.tf`](test-fixtures/hcl_outputs/outputs.tf) being converted to JSON:
+这个是一个例子 [`test-fixtures/hcl_outputs/outputs.tf`](test-fixtures/hcl_outputs/outputs.tf) 转换成JSON的栗子:
 
 
 ```bash
@@ -53,13 +54,13 @@ $ hcl2json -i test-fixtures/hcl_outputs/outputs.tf
 }
 ```
 
-Typical use would be
+典型使用
 
 ```bash
 $ hcl2json -i test-fixtures/hcl_outputs/outputs.tf -o outputs.tf.json
 ```
 
-Multi files convert
+文件夹下多文件转换
 
 ```bash
 $ hcl2json -i test-fixtures/ -o test-fixtures-10/
@@ -67,7 +68,7 @@ $ hcl2json -i test-fixtures/ -o test-fixtures-10/
 
 ## json2hcl
 
-As a bonus, the conversion the other way around is also supported via the `-reverse` flag:
+通过`-reverse`标签,我们可以将json转换成hcl :
 
 ```bash
 $ hclwjson -i test-fixtures/json_outputs/outputs.tf.json -reverse
@@ -78,10 +79,14 @@ output "public_ip" {
 }
 ```
 
-## Development
+## 开发
 
 ```bash
+# 克隆代码
 git clone git@github.com:gorpher/hcl2json.git
+# 进入目录
 cd json2hcl
+# 下载依赖包
 go mod tidy
+# 开始coding
 ```

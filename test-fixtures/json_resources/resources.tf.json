@@ -1,0 +1,81 @@
+{
+  "data": [
+    {
+      "tencentcloud_availability_zones": [
+        {
+          "my_favorate_zones": [
+            {}
+          ]
+        }
+      ]
+    }
+  ],
+  "resource": [
+    {
+      "tencentcloud_instance": [
+        {
+          "cvm_test": [
+            {
+              "allocate_public_ip": true,
+              "availability_zone": "${var.availability_zone}",
+              "count": 3,
+              "dynamic": [
+                {
+                  "tags": [
+                    {
+                      "content": [
+                        {
+                          "key": "${tags.value.key}",
+                          "value": "${tags.value.value}"
+                        }
+                      ],
+                      "for_each": "${var.tags}"
+                    }
+                  ]
+                }
+              ],
+              "image_id": "img-d5bte9sz",
+              "instance_name": "cvm-test",
+              "instance_type": "S2.SMALL1",
+              "internet_max_bandwidth_out": 10,
+              "password": "qwer@123",
+              "security_groups": [
+                "${tencentcloud_security_group.sg_test.id}"
+              ],
+              "subnet_id": "${tencentcloud_subnet.subnet_test.id}",
+              "system_disk_type": "CLOUD_PREMIUM",
+              "vpc_id": "${tencentcloud_vpc.vpc_test.id}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tencentcloud_cbs_storage": [
+        {
+          "my_storage": [
+            {
+              "availability_zone": "${data.tencentcloud_availability_zones.my_favorate_zones.zones.0.name}",
+              "period": 1,
+              "storage_name": "${var.storage_name}",
+              "storage_size": 10,
+              "storage_type": "CLOUD_PREMIUM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tencentcloud_cbs_storage_attachment": [
+        {
+          "my-attachment": [
+            {
+              "instance_id": "${tencentcloud_instance.cvm_test.0.id}",
+              "storage_id": "${tencentcloud_cbs_storage.my_storage.id}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

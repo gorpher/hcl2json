@@ -1,0 +1,25 @@
+{
+  "terraform": [
+    {
+      "backend": [
+        {
+          "pg": [
+            {
+              "conn_str": "${var.backend_url}"
+            }
+          ]
+        }
+      ],
+      "required_version": "\u003e= 0.12"
+    }
+  ],
+  "variable": [
+    {
+      "backend_url": [
+        {
+          "default": "postgres://postgres:admin@127.0.0.1/postgres?sslmode=disable"
+        }
+      ]
+    }
+  ]
+}
