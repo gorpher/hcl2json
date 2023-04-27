@@ -71,7 +71,7 @@ $ hcl2json -i test-fixtures/ -o test-fixtures-10/
 通过`-reverse`标签,我们可以将json转换成hcl :
 
 ```bash
-$ hclwjson -i test-fixtures/json_outputs/outputs.tf.json -reverse
+$ hcl2json -i test-fixtures/json_outputs/outputs.tf.json -reverse
 
 
 output "public_ip" {
@@ -85,7 +85,7 @@ output "public_ip" {
 # 克隆代码
 git clone git@github.com:gorpher/hcl2json.git
 # 进入目录
-cd json2hcl
+cd hcl2json
 # 下载依赖包
 go mod tidy
 # 开始coding

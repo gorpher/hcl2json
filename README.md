@@ -70,7 +70,7 @@ $ hcl2json -i test-fixtures/ -o test-fixtures-10/
 As a bonus, the conversion the other way around is also supported via the `-reverse` flag:
 
 ```bash
-$ hclwjson -i test-fixtures/json_outputs/outputs.tf.json -reverse
+$ hcl2json -i test-fixtures/json_outputs/outputs.tf.json -reverse
 
 
 output "public_ip" {
@@ -82,6 +82,6 @@ output "public_ip" {
 
 ```bash
 git clone git@github.com:gorpher/hcl2json.git
-cd json2hcl
+cd hcl2json
 go mod tidy
 ```
